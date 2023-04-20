@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    	<meta charset="UTF-8">
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Billah TV Player</title>
+	<!-- Include the Plyr.io CSS file -->
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+
+	<!-- Include the Plyr.io JavaScript file -->
+	<script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
+	<!-- Include the video.js library -->
+	<link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+	<script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+
+	<style>
+		#video-player {
+			width: 640px;
+			height: 360px;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+  <div class="image-container">
+   <img src="https://raw.githubusercontent.com/Sharif112ui/plyr/main/IMG_20230419_230427.png" alt="image description" width="100%" height="auto">
+   <br>⠀<br>⠀<br>
+   ⠀<br>
+   ⠀<br>
+	<!-- Define the video player -->
+	<video id="video-player" class="video-js vjs-default-skin"></video>
+
+	<script>
+		// Get the m3u8 URL from the query parameter
+		var urlParams = new URLSearchParams(window.location.search);
+		var url = urlParams.get('url');
+
+		// Set up the Plyr.io player
+		const player = new Plyr('#video-player', {
+			controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+			fullscreen: { enabled: true },
+			hideControls: true,
+			clickToPlay: true,
+			invertTime: false,
+			autoplay: true
+		});
+
+		// Set the source of the video player to the m3u8 URL
+		player.source = {
+			type: 'video',
+			sources: [{
+				src: url,
+				type: 'application/x-mpegURL'
+			}]
+		};
+	</script>
+	<center>
+	<br> <br> <font size="4">যেকোনো সমস্যা হলে যোগাযোগ করুন:<a href="https://bit.ly/41vpOHh">Contact </a></font>
+</body>
+</html>
